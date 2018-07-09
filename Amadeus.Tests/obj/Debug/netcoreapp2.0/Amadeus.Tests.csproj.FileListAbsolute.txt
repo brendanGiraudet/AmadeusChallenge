@@ -1,0 +1,17 @@
+C:\Projects\Amadeus\Amadeus.Tests\bin\Debug\netcoreapp2.0\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Projects\Amadeus\Amadeus.Tests\bin\Debug\netcoreapp2.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Projects\Amadeus\Amadeus.Tests\bin\Debug\netcoreapp2.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Projects\Amadeus\Amadeus.Tests\bin\Debug\netcoreapp2.0\Amadeus.Tests.deps.json
+C:\Projects\Amadeus\Amadeus.Tests\bin\Debug\netcoreapp2.0\Amadeus.Tests.runtimeconfig.json
+C:\Projects\Amadeus\Amadeus.Tests\bin\Debug\netcoreapp2.0\Amadeus.Tests.runtimeconfig.dev.json
+C:\Projects\Amadeus\Amadeus.Tests\bin\Debug\netcoreapp2.0\Amadeus.Tests.dll
+C:\Projects\Amadeus\Amadeus.Tests\bin\Debug\netcoreapp2.0\Amadeus.Tests.pdb
+C:\Projects\Amadeus\Amadeus.Tests\bin\Debug\netcoreapp2.0\Amadeus.dll
+C:\Projects\Amadeus\Amadeus.Tests\bin\Debug\netcoreapp2.0\Amadeus.pdb
+C:\Projects\Amadeus\Amadeus.Tests\obj\Debug\netcoreapp2.0\Amadeus.Tests.csprojAssemblyReference.cache
+C:\Projects\Amadeus\Amadeus.Tests\obj\Debug\netcoreapp2.0\Amadeus.Tests.csproj.CoreCompileInputs.cache
+C:\Projects\Amadeus\Amadeus.Tests\obj\Debug\netcoreapp2.0\Amadeus.Tests.AssemblyInfoInputs.cache
+C:\Projects\Amadeus\Amadeus.Tests\obj\Debug\netcoreapp2.0\Amadeus.Tests.AssemblyInfo.cs
+C:\Projects\Amadeus\Amadeus.Tests\obj\Debug\netcoreapp2.0\Amadeus.Tests.csproj.CopyComplete
+C:\Projects\Amadeus\Amadeus.Tests\obj\Debug\netcoreapp2.0\Amadeus.Tests.dll
+C:\Projects\Amadeus\Amadeus.Tests\obj\Debug\netcoreapp2.0\Amadeus.Tests.pdb
