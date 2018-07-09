@@ -11,6 +11,27 @@ namespace Amadeus {
         public int EdgeCount { get; set; }
         public List<Edge> Edges { get; set; }
         public List<Planet> Planets { get; set; }
+
+        internal void Loop()
+        {
+            WriteDebug();
+            for (int i = 0; i < 5; i++)
+            {
+                Console.WriteLine("0");
+            }
+            Console.WriteLine("NONE");
+        }
+
+        private void WriteDebug()
+        {
+            Console.Error.WriteLine(PlanetCount + " " + EdgeCount);
+            foreach(var edge in Edges)
+                Console.Error.WriteLine(edge.PlanetA + " " + edge.PlanetB);
+            foreach (var planet in Planets)
+                Console.Error.WriteLine(planet.MyUnits + " " + planet.MyTolerance +
+                    " " + planet.OtherUnits + " " + planet.OtherTolerance + " " + 
+                    planet.CanAssign);
+        }
     }
     public class Edge {
         public int PlanetA { get; set; }
@@ -57,12 +78,7 @@ namespace Amadeus {
                     });
                 }
 
-                Console.WriteLine("0");
-                Console.WriteLine("0");
-                Console.WriteLine("0");
-                Console.WriteLine("0");
-                Console.WriteLine("0");
-                Console.WriteLine("NONE");
+                game.Loop();
             }
         }
     }

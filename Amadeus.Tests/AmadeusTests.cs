@@ -13,8 +13,6 @@ namespace Amadeus.Tests
         [TestInitialize]
         public void SetUp() {
             game = new Game();
-            game.PlanetCount = 34;
-            game.EdgeCount = 59;
             game.Edges = new List<Edge>();
             game.Planets = new List<Planet>();
         }
@@ -56,8 +54,7 @@ namespace Amadeus.Tests
                     });
                 }
                 counter++;
-            }  
-
+            }
             file.Close();  
         }
     }
