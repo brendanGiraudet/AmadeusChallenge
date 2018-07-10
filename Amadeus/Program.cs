@@ -17,7 +17,11 @@ namespace Amadeus {
             WriteDebug();
             for (int i = 0; i < 5; i++)
             {
-                Console.WriteLine("0");
+                var plan = Planets.First();
+                if(plan != null)
+                    Console.WriteLine(plan.ID);
+                else
+                    Console.WriteLine("0");
             }
             Console.WriteLine("NONE");
         }
@@ -25,8 +29,10 @@ namespace Amadeus {
         private void WriteDebug()
         {
             Console.Error.WriteLine(PlanetCount + " " + EdgeCount);
+            Console.Error.WriteLine("Edges");
             foreach(var edge in Edges)
                 Console.Error.WriteLine(edge.PlanetA + " " + edge.PlanetB);
+            Console.Error.WriteLine("Planetes");
             foreach (var planet in Planets)
                 Console.Error.WriteLine(planet.MyUnits + " " + planet.MyTolerance +
                     " " + planet.OtherUnits + " " + planet.OtherTolerance + " " + 
