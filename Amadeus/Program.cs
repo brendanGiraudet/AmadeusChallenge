@@ -15,11 +15,14 @@ namespace Amadeus {
         internal void Loop()
         {
             WriteDebug();
+            var myPlanet = this.Planets.Where(p => p.MyUnits > 0).ToList();
+
             for (int i = 0; i < 5; i++)
             {
-                var plan = Planets.First();
-                if(plan != null)
-                    Console.WriteLine(plan.ID);
+               var edge = this.Edges.Find(e => myPlanet.Any(p => p.ID == e.PlanetA));
+
+                if(edge != null)
+                    Console.WriteLine(edge.PlanetB);
                 else
                     Console.WriteLine("0");
             }
@@ -36,7 +39,7 @@ namespace Amadeus {
             foreach (var planet in Planets)
                 Console.Error.WriteLine(planet.MyUnits + " " + planet.MyTolerance +
                     " " + planet.OtherUnits + " " + planet.OtherTolerance + " " + 
-                    planet.CanAssign);
+                    planet.CanAssign + " " + planet.ID);
         }
     }
     public class Edge {
@@ -80,10 +83,11 @@ namespace Amadeus {
                         MyTolerance = int.Parse(inputs[1]),
                         OtherUnits = int.Parse(inputs[2]),
                         OtherTolerance = int.Parse(inputs[3]),
-                        CanAssign = int.Parse(inputs[4])
+                        CanAssign = int.Parse(inputs[4]),
+                        ID = i
                     });
                 }
-
+                game.Planets = game.Planets.OrderBy(p => p.MyUnits).ToList();
                 game.Loop();
             }
         }

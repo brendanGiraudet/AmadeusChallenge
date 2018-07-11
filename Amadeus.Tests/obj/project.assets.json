@@ -5713,23 +5713,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\nicol\\.nuget\\packages\\": {},
+    "C:\\Users\\brendan.giraudet\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projects\\Amadeus\\Amadeus.Tests\\Amadeus.Tests.csproj",
+      "projectUniqueName": "d:\\perso\\AmadeusChallenge\\AmadeusChallenge\\Amadeus.Tests\\Amadeus.Tests.csproj",
       "projectName": "Amadeus.Tests",
-      "projectPath": "C:\\Projects\\Amadeus\\Amadeus.Tests\\Amadeus.Tests.csproj",
-      "packagesPath": "C:\\Users\\nicol\\.nuget\\packages\\",
-      "outputPath": "C:\\Projects\\Amadeus\\Amadeus.Tests\\obj\\",
+      "projectPath": "d:\\perso\\AmadeusChallenge\\AmadeusChallenge\\Amadeus.Tests\\Amadeus.Tests.csproj",
+      "packagesPath": "C:\\Users\\brendan.giraudet\\.nuget\\packages\\",
+      "outputPath": "d:\\perso\\AmadeusChallenge\\AmadeusChallenge\\Amadeus.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\nicol\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\brendan.giraudet\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5737,13 +5737,15 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "\\\\devfile\\Builds\\Cloud\\Infrastructure-material\\NugetPackages": {},
+        "\\\\devfile\\Builds\\Cloud\\Sia": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "C:\\Projects\\Amadeus\\Amadeus\\Amadeus.csproj": {
-              "projectPath": "C:\\Projects\\Amadeus\\Amadeus\\Amadeus.csproj"
+            "d:\\perso\\AmadeusChallenge\\AmadeusChallenge\\Amadeus\\Amadeus.csproj": {
+              "projectPath": "d:\\perso\\AmadeusChallenge\\AmadeusChallenge\\Amadeus\\Amadeus.csproj"
             }
           }
         }

@@ -664,23 +664,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\nicol\\.nuget\\packages\\": {},
+    "C:\\Users\\brendan.giraudet\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Projects\\Amadeus\\Amadeus\\Amadeus.csproj",
+      "projectUniqueName": "d:\\perso\\AmadeusChallenge\\AmadeusChallenge\\Amadeus\\Amadeus.csproj",
       "projectName": "Amadeus",
-      "projectPath": "c:\\Projects\\Amadeus\\Amadeus\\Amadeus.csproj",
-      "packagesPath": "C:\\Users\\nicol\\.nuget\\packages\\",
-      "outputPath": "c:\\Projects\\Amadeus\\Amadeus\\obj\\",
+      "projectPath": "d:\\perso\\AmadeusChallenge\\AmadeusChallenge\\Amadeus\\Amadeus.csproj",
+      "packagesPath": "C:\\Users\\brendan.giraudet\\.nuget\\packages\\",
+      "outputPath": "d:\\perso\\AmadeusChallenge\\AmadeusChallenge\\Amadeus\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\nicol\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\brendan.giraudet\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -688,6 +688,8 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "\\\\devfile\\Builds\\Cloud\\Infrastructure-material\\NugetPackages": {},
+        "\\\\devfile\\Builds\\Cloud\\Sia": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
