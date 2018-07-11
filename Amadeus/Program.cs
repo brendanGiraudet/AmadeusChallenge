@@ -16,13 +16,16 @@ namespace Amadeus {
         {
             WriteDebug();
             var myPlanet = this.Planets.Where(p => p.MyUnits > 0).ToList();
-
+            var list = new List<int>();
             for (int i = 0; i < 5; i++)
             {
-               var edge = this.Edges.Find(e => myPlanet.Any(p => p.ID == e.PlanetA));
+               var edge = this.Edges.Find(e => myPlanet.Any(p => p.ID == e.PlanetA) &&  !list.Contains(e.PlanetB));
 
                 if(edge != null)
+                {
                     Console.WriteLine(edge.PlanetB);
+                    list.Add(edge.PlanetB);
+                }
                 else
                     Console.WriteLine("0");
             }
