@@ -14,17 +14,63 @@ namespace Amadeus {
 
         internal void Loop()
         {
-            WriteDebug();
+            //WriteDebug();
             var myPlanet = this.Planets.Where(p => !p.MyUnits.Equals(0)).ToList();
             var otherPlanet = this.Planets.Where(p => p.MyUnits.Equals(0)).ToList();
+            
+            var ret = new List<int>();
+            /*if(myPlanet.Count.Equals(1))
+            {
+                Edges.Where(e=> e.PlanetA == myPlanet.First().ID).ToList().ForEach(
+                    e=> {
+                        ret.Add(e.PlanetB);
+                    }
+                );
+            }*/
             for (int i = 0; i < 5; i++)
             {
-                var plan = otherPlanet.Find(o => o.CanAssign.Equals(1));                    
-                Console.WriteLine(plan?.ID ?? 0);
-                myPlanet.Add(plan);
-                otherPlanet.Remove(plan);
+                var edges = Edges.Where(e=> myPlanet.Any(p => p.ID == e.PlanetA)).ToList();
+                otherPlanet = otherPlanet.OrderByDescending( o => edges.Where(e => e.PlanetB == o.ID).ToList().Count()).ToList();
+                var plan = otherPlanet.Find(o => o.CanAssign.Equals(1)
+                 //   && nbOtherUnitOfPlanetAndAround(o) >= nbMyUnitOfPlanetAndAround(o)
+                );
+
+                ret.Add(plan?.ID ?? 0);
+                if(plan != null)
+                    plan.MyUnits++;
+
+                if(plan?.MyUnits > 2 && edges.Count < 3 )
+                {
+                    myPlanet.Add(plan);
+                    otherPlanet.Remove(plan);
+                }
             }
+
+            ret.ForEach(
+                i => System.Console.WriteLine(i)
+            );
             Console.WriteLine("NONE");
+        }
+
+        internal int nbMyUnitOfPlanetAndAround(Planet planete)
+        {
+            var edges = Edges.Where(e => e.PlanetA == planete.ID).ToList();
+            var nb = planete.MyUnits;
+            foreach (var item in edges)
+            {
+                nb += Planets.Find(p => p.ID == item.PlanetB).MyUnits;
+            }
+            return nb;
+        }
+        internal int nbOtherUnitOfPlanetAndAround(Planet planete)
+        {
+            var edges = Edges.Where(e => e.PlanetA == planete.ID).ToList();
+            var nb = planete.OtherUnits;
+            foreach (var item in edges)
+            {
+                nb += Planets.Find(p => p.ID == item.PlanetB).OtherUnits;
+            }
+            return nb;
         }
 
         private void WriteDebug()
