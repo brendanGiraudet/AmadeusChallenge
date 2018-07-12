@@ -17,15 +17,12 @@ namespace Amadeus {
             WriteDebug();
             var myPlanet = this.Planets.Where(p => !p.MyUnits.Equals(0)).ToList();
             var otherPlanet = this.Planets.Where(p => p.MyUnits.Equals(0)).ToList();
-            var blackList = new List<Edge>();
             for (int i = 0; i < 5; i++)
             {
-                var edges = this.Edges.Where(e => myPlanet.Any(p => p.ID == e.PlanetA) 
-                    &&  !myPlanet.Any(pl => pl.ID == e.PlanetB)
-                    && !blackList.Contains(e)).ToList();
-                var edge = edges?.Find(e => otherPlanet.Any(p => p.CanAssign.Equals(1)));
-                Console.WriteLine((edge == null)? "0" : $"{edge.PlanetB}");
-                blackList.Add(edge);
+                var plan = otherPlanet.Find(o => o.CanAssign.Equals(1));                    
+                Console.WriteLine(plan?.ID ?? 0);
+                myPlanet.Add(plan);
+                otherPlanet.Remove(plan);
             }
             Console.WriteLine("NONE");
         }
