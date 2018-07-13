@@ -33,6 +33,8 @@ namespace Amadeus {
                 otherPlanet = otherPlanet.OrderByDescending( o => edges.Where(e => e.PlanetB == o.ID).ToList().Count()).ToList();
                 var plan = otherPlanet.Find(o => o.CanAssign.Equals(1)
                  //   && nbOtherUnitOfPlanetAndAround(o) >= nbMyUnitOfPlanetAndAround(o)
+                 && o.MyTolerance > 1
+                 && o.MyUnits < 2
                 );
 
                 ret.Add(plan?.ID ?? 0);
