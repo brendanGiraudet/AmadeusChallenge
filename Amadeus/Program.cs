@@ -17,31 +17,30 @@ namespace Amadeus {
             //WriteDebug();
             var myPlanet = this.Planets.Where(p => !p.MyUnits.Equals(0)).ToList();
             var otherPlanet = this.Planets.Where(p => p.MyUnits.Equals(0)).ToList();
-            
             var ret = new List<int>();
-            /*if(myPlanet.Count.Equals(1))
-            {
-                Edges.Where(e=> e.PlanetA == myPlanet.First().ID).ToList().ForEach(
-                    e=> {
-                        ret.Add(e.PlanetB);
-                    }
-                );
-            }*/
             for (int i = 0; i < 5; i++)
             {
                 var edges = Edges.Where(e=> myPlanet.Any(p => p.ID == e.PlanetA)).ToList();
                 otherPlanet = otherPlanet.OrderByDescending( o => edges.Where(e => e.PlanetB == o.ID).ToList().Count()).ToList();
+                // conquerir les planetes non conquisent
                 var plan = otherPlanet.Find(o => o.CanAssign.Equals(1)
-                 //   && nbOtherUnitOfPlanetAndAround(o) >= nbMyUnitOfPlanetAndAround(o)
-                 && o.MyTolerance > 1
-                 && o.MyUnits < 2
+                    && o.MyUnits.Equals(0) 
+                    && o.OtherUnits.Equals(0)
                 );
+                // recuperer des planetes deja conquises
+                if(plan == null)
+                {
+                    otherPlanet = otherPlanet.OrderBy( o => o.OtherUnits).ToList();
+                    plan = otherPlanet.Find(o => o.CanAssign.Equals(1)
+                        && nbMyUnitOfPlanetAndAround(o) <= nbOtherUnitOfPlanetAndAround(o)
+                    );
+                }
 
                 ret.Add(plan?.ID ?? 0);
                 if(plan != null)
                     plan.MyUnits++;
 
-                if(plan?.MyUnits > 2 && edges.Count < 3 )
+                if(plan?.MyUnits > 3)
                 {
                     myPlanet.Add(plan);
                     otherPlanet.Remove(plan);
