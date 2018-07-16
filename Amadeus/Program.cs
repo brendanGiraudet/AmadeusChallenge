@@ -31,22 +31,20 @@ namespace Amadeus {
                 {
                     var edges = Edges.Where(e=> myPlanet.Any(p => p.ID == e.PlanetA)).ToList();
                     otherPlanet = otherPlanet.OrderByDescending( o => edges.Where(e => e.PlanetB == o.ID).ToList().Count()).ToList();
-                    otherPlanet = otherPlanet.OrderBy( o => o.OtherUnits).ToList();
                     plan = otherPlanet.Find(o => o.CanAssign.Equals(1)
-                        && nbMyUnitOfPlanetAndAround(o) <= nbOtherUnitOfPlanetAndAround(o)
-                    );
+                        && o.MyTolerance <= o.OtherTolerance);
                 }
 
                 // charger mes planetes faible
                 if(plan == null)
                 {
-                    myPlanet.OrderBy(p => p.MyUnits);
+                    myPlanet = myPlanet.OrderBy(p => p.MyUnits).ThenBy(p => p.MyTolerance).ToList();
                     plan = myPlanet.FirstOrDefault();
                 }
 
                 ret.Add(plan.ID);
                 plan.MyUnits++;
-                if(plan.MyUnits > plan.OtherUnits)
+                if(plan.MyUnits > plan.OtherUnits && plan.MyTolerance < plan.OtherTolerance)
                 {
                     myPlanet.Add(plan);
                     otherPlanet.Remove(plan);
