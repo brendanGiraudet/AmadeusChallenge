@@ -30,9 +30,10 @@ namespace Amadeus {
                 if(plan == null)
                 {
                     var edges = Edges.Where(e=> myPlanet.Any(p => p.ID == e.PlanetA)).ToList();
-                    otherPlanet = otherPlanet.OrderByDescending( o => edges.Where(e => e.PlanetB == o.ID).ToList().Count()).ToList();
+                    otherPlanet = otherPlanet.OrderBy( o => edges.Where(e => e.PlanetB == o.ID).ToList().Count()).ToList();
                     plan = otherPlanet.Find(o => o.CanAssign.Equals(1)
-                        && o.MyTolerance <= o.OtherTolerance);
+                        && o.MyTolerance >= o.OtherTolerance
+                        && o.MyUnits < o.OtherUnits);
                 }
 
                 // charger mes planetes faible
@@ -44,7 +45,7 @@ namespace Amadeus {
 
                 ret.Add(plan.ID);
                 plan.MyUnits++;
-                if(plan.MyUnits > plan.OtherUnits && plan.MyTolerance < plan.OtherTolerance)
+                if(plan.MyUnits > plan.OtherUnits)
                 {
                     myPlanet.Add(plan);
                     otherPlanet.Remove(plan);
