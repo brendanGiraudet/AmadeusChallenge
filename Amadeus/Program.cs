@@ -20,7 +20,7 @@ namespace Amadeus {
             var ret = new List<int>();
             for (int i = 0; i < 5; i++)
             {
-                otherPlanet = otherPlanet.OrderBy( o => o.MyUnits).ToList();
+                otherPlanet = otherPlanet.OrderBy( o =>  nbOtherUnitOfPlanetAndAround(o)).ToList();
                 // conquerir les planetes non conquisent
                 var plan = otherPlanet.Find(o => o.CanAssign.Equals(1)
                     && o.MyUnits.Equals(0) 
@@ -30,10 +30,10 @@ namespace Amadeus {
                 if(plan == null)
                 {
                     var edges = Edges.Where(e=> myPlanet.Any(p => p.ID == e.PlanetA)).ToList();
-                    otherPlanet = otherPlanet.OrderBy( o => edges.Where(e => e.PlanetB == o.ID).ToList().Count()).ToList();
+                    otherPlanet = otherPlanet.OrderByDescending( o => edges.Where(e => e.PlanetB == o.ID).ToList().Count()).ToList();
                     plan = otherPlanet.Find(o => o.CanAssign.Equals(1)
-                        && o.MyTolerance >= o.OtherTolerance
-                        && o.MyUnits < o.OtherUnits);
+                        && o.MyUnits <= o.OtherUnits  
+                    );
                 }
 
                 // charger mes planetes faible
